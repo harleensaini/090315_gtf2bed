@@ -58,7 +58,7 @@ def gtf2bed_intron_pattern_ref():
 			eachbedlinebytab = strippedbedline.split('\t')
 
 			# add intron size conditional here - chrEnd - chrStart
-			if int(eachbedlinebytab[2])-int(eachbedlinebytab[1]) > interval:
+			if int(eachbedlinebytab[2])-int(eachbedlinebytab[1]) > (interval*3):
 
 				# Conditional NOT NEEDED - if minus strand, then chrStart -50 else +50
 				intronchr_col1 = eachbedlinebytab[0]
@@ -72,7 +72,7 @@ def gtf2bed_intron_pattern_ref():
 				chrendminusint = chrend-interval
 
 				chrcenter = int((chrstart+chrend)/2)
-				chrcenterplusint = chrcenter-(interval/2)
+				chrcenterplusint = chrcenter+(interval/2)
 				chrcenterminusint = chrcenter-(interval/2)
 
 				intronchrstart_A_col2 = str(chrstart)
